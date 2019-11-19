@@ -2,6 +2,25 @@ package com.company;
 
 import java.util.Arrays;
 import java.util.LinkedList;
+import java.util.Scanner;
+
+class Rule {
+
+    private final int divisor;
+    private final String exclamation;
+
+    public Rule(int div, String exc) {
+        divisor = div;
+        exclamation = exc;
+    }
+
+    public LinkedList<String> applyRule(int num, LinkedList<String> excList) {
+        if (num % divisor == 0) {
+            excList.add(exclamation);
+        }
+        return excList;
+    }
+}
 
 public class Main {
 
@@ -15,9 +34,25 @@ public class Main {
     }*/
 
     public static void main(String[] args) {
-	    for (int i = 1; i <= 400; i++) {
+
+        Scanner userInput = new Scanner(System.in);
+        System.out.println("print up to what number?");
+        int n = userInput.nextInt();
+
+        System.out.println("tell me a divisor?");
+        int div = userInput.nextInt();
+
+        System.out.println("What should I say?");
+        String exc = userInput.nextLine();
+
+        Rule newRule = new Rule(div, exc);
+
+	    for (int i = 1; i <= n; i++) {
 	        LinkedList<String> FIZZBUZZ = new LinkedList<String>();
 	        boolean isFezz = false;
+
+	        newRule.applyRule(i, FIZZBUZZ);
+
 	        if (i % 3 == 0) {
 	            FIZZBUZZ.add("Fizz");
             }
