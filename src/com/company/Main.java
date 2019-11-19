@@ -4,24 +4,6 @@ import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.Scanner;
 
-class Rule {
-
-    private final int divisor;
-    private final String exclamation;
-
-    public Rule(int div, String exc) {
-        divisor = div;
-        exclamation = exc;
-    }
-
-    public LinkedList<String> applyRule(int num, LinkedList<String> excList) {
-        if (num % divisor == 0) {
-            excList.add(exclamation);
-        }
-        return excList;
-    }
-}
-
 public class Main {
 
  /*   public static String[] push(String str, String arr[], int n) {
@@ -41,6 +23,7 @@ public class Main {
 
         System.out.println("tell me a divisor?");
         int div = userInput.nextInt();
+        userInput.nextLine();
 
         System.out.println("What should I say?");
         String exc = userInput.nextLine();
